@@ -3,30 +3,26 @@ import { useState } from "react";
 
 function App() {
 
-  const name="ก้อง";
-  // const age = 30;
-  const [age, setAge] = useState(30);
+  const [data, setData] = useState([
+    {id: 1, name: "Tjay", gender: "male"},
+    {id: 2, name: "boss", gender: "gay"},
+    {id: 3, name: "poom", gender: "gay"},
+    {id: 4, name: "tata", gender: "gay"},
+    {id: 5, name: "pea", gender: "gay"}
+  ]);
 
-  function add(){
-      setAge(age + 1);
-  }
-
-  function subtract(){
-    setAge(age -1);
-  }
-
-  function reset(){
-    setAge(30);
-  }
-
+  // console.table(data);
   
   return (
     <>
-      <h1>hello testtest {name}</h1>
-      <h3>ที่อยู่ : {age} ปี</h3>
-      <button onClick={() => setAge(age + 1)}>เพิ่มอายุ</button>
-      <button onClick={() => setAge(age -1)}>ลดอายุ</button>
-      <button onClick={() => setAge(30)}>reset</button>
+      <h1>จำนวนประชากร {data.length} คน</h1>
+      <ul>
+        {data.map((item) => (
+          // ต้องกำหนด key properties ด้วย โดย key properties ต้องมีค่าไม่ซ้ำกัน
+            <li key={item.id}><h3>{item.id}|{item.name} | {item.gender}</h3></li>
+        ))}
+        
+      </ul>
     </>
 
   );
